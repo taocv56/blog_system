@@ -57,6 +57,7 @@ class UserTest < ActiveSupport::TestCase
     end
   end
   
+  
   test "should follow and unfollow a user" do
     michael = users(:michael)
     archer  = users(:archer)

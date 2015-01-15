@@ -19,10 +19,19 @@ class MicropostsController < ApplicationController
     redirect_to request.referrer || root_url
   end
 
+  def show
+    @micropost  = Micropost.find(params[:id])
+    @comments = @micropost.comments.paginate(page: params[:page])
+    #my_global_variabl(Micropost.find(params[:id]))
+  end
+  
+  def index
+    @microposts = Micropost.paginate(page: params[:page])
+  end
   private
 
     def micropost_params
-      params.require(:micropost).permit(:content, :picture)
+      params.require(:micropost).permit(:content, :picture, :title)
     end
     
     def correct_user

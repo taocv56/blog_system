@@ -4,6 +4,8 @@ module SessionsHelper
     session[:user_id] = user.id
   end
   
+  # save curr post
+  
   # Remembers a user in a persistent session.
   def remember(user)
     user.remember
