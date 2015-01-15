@@ -1,19 +1,22 @@
 <% provide(:title, "Comment") %>
  
 <div class="row">
+	<div class="col-md-6"> 
   <section class="microposts">
       <%= render @micropost %>
-    </section>
-  <div class="col-md-8">
+  </section>
+  
+	  <% if logged_in? && (current_user.followers.include?(@micropost.user) || 
+	  		current_user.id == @micropost.user.id)  %>
+	  		<%@comment = current_user.comments.build(content: params[:content])%>
+	    	<%@comment.micropost_id = @micropost.id%>    
+	    	<%= render 'shared/comment_form' %>
+	  <% end %>
+  </div>
+  <div class="col-md-6"> 	
+  	<h3>Comments (<%= @micropost.comments.count %>)</h3>
   	
-  	<% if logged_in? && (current_user.followers.include?(@micropost.user) || 
-  		current_user.id == @micropost.user.id)  %>
-  		<%@comment = current_user.comments.build(content: params[:content])%>
-    	<%@comment.micropost_id = @micropost.id%>    
-    	<%= render 'shared/comment_form' %>
-    <% end %>
     <% if @micropost.comments.any? %>
-      <h3>Comments (<%= @micropost.comments.count %>)</h3>
       <ol class="comments">
         <%= render @comments %>
       </ol>
