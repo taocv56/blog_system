@@ -27,14 +27,15 @@ users = User.order(:created_at).take(6)
 end
 
 # Comments
-users = User.order(:created_at).take(6)
+users = User.all
 microposts = Micropost.order(:created_at).take(6)
+some_microposts = microposts[1..6]
 user = User.first
-50.times do
+50.times do |i|
   content = Faker::Lorem.sentence(5)
-#  microposts.each do |micropost| 
-    #user.comments.create!(content: content, micropost_id: 295) 
-#  end
+  some_microposts.each do |micropost| 
+    users[i].comments.create!(content: content, micropost_id: micropost.id) 
+  end
 end
 
 # Following relationships
@@ -44,4 +45,3 @@ following = users[2..50]
 followers = users[3..40]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
-
