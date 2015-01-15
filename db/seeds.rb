@@ -29,7 +29,7 @@ end
 # Comments
 users = User.all
 microposts = Micropost.order(:created_at).take(6)
-some_microposts = microposts[1..6]
+some_microposts = microposts[0..6]
 user = User.first
 50.times do |i|
   content = Faker::Lorem.sentence(5)
