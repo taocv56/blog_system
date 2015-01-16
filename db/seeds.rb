@@ -22,8 +22,9 @@ end
 # Microposts
 users = User.order(:created_at).take(6)
 50.times do
+  title = Faker::Lorem.sentence(2)
   content = Faker::Lorem.sentence(5)
-  users.each { |user| user.microposts.create!(content: content) }
+  users.each { |user| user.microposts.create!(content: content, title: title) }
 end
 
 # Comments
