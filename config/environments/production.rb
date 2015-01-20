@@ -34,7 +34,7 @@ SampleApp::Application.configure do
     :authentication => :plain,
     :user_name      => 'mailtestframgia@gmail.com',
     :password       => 'Framgia2014',
-    :domain         => 'heroku.com',
+    :domain         => 'gmail.com',
     :enable_starttls_auto => true
   }
   

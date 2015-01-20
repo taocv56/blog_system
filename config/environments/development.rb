@@ -26,8 +26,8 @@ SampleApp::Application.configure do
     :address        => 'smtp.gmail.com',
     :port           => '587',
     :authentication => :plain,
-    :user_name      => 'luong.van.thang.nam@gmail.com',
-    :password       => 'R9pZFXpd-vYGJdS',
+    :user_name      => 'mailtestframgia@gmail.com',
+    :password       => 'Framgia2014',
     :domain         => 'gmail.com',
     :enable_starttls_auto => true
   }
