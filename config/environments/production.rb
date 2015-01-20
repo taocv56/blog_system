@@ -19,15 +19,25 @@ SampleApp::Application.configure do
   config.action_mailer.delivery_method = :smtp
   host = '<your heroku app>.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
+  # ActionMailer::Base.smtp_settings = {
+    # :address        => 'smtp.sendgrid.net',
+    # :port           => '587',
+    # :authentication => :plain,
+    # :user_name      => ENV['SENDGRID_USERNAME'],
+    # :password       => ENV['SENDGRID_PASSWORD'],
+    # :domain         => 'heroku.com',
+    # :enable_starttls_auto => true
+  # }
   ActionMailer::Base.smtp_settings = {
-    :address        => 'smtp.sendgrid.net',
+    :address        => 'smtp.gmail.com',
     :port           => '587',
     :authentication => :plain,
-    :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD'],
+    :user_name      => 'mailtestframgia@gmail.com',
+    :password       => 'Framgia2014',
     :domain         => 'heroku.com',
     :enable_starttls_auto => true
   }
+  
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
   # For large-scale production use, consider using a caching reverse proxy like nginx, varnish or squid.
